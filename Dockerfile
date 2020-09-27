@@ -31,9 +31,10 @@ USER root
 
 # Add source to install python3.7
 # python3.7 need to install these packages first
-RUN apt-get update && apt-get -yq install software-properties-common && add-apt-repository -y ppa:deadsnakes/ppa
-
-RUN apt-get update && apt-get -yq install python3.7 python3-pip python3-dev
+RUN apt-get update && apt-get -yq install software-properties-common
+RUN add-apt-repository -y ppa:deadsnakes/ppa
+RUN apt-get updaet
+RUN apt-get -yq install python3.7 python3-pip python3-dev
 
 
 # Install all OS dependencies for notebook server that starts but lacks all
