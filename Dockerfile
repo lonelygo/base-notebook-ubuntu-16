@@ -29,6 +29,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 USER root
 
+ENV DEBIAN_FRONTEND noninteractive
 # Add source to install python3.7
 # python3.7 need to install these packages first
 RUN apt-get update && apt-get -yq install software-properties-common
@@ -39,7 +40,7 @@ RUN apt-get -yq install python3.7 python3-pip python3-dev
 
 # Install all OS dependencies for notebook server that starts but lacks all
 # features (e.g., download as all possible file formats)
-ENV DEBIAN_FRONTEND noninteractive
+
 RUN apt-get update \
  && apt-get install -yq --no-install-recommends \
     wget \
