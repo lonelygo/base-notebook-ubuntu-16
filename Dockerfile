@@ -33,7 +33,7 @@ USER root
 # python3.7 need to install these packages first
 RUN apt-get update && apt-get -yq install software-properties-common
 RUN add-apt-repository -y ppa:deadsnakes/ppa
-RUN apt-get updaet
+RUN apt-get update
 RUN apt-get -yq install python3.7 python3-pip python3-dev
 
 
