@@ -3,6 +3,6 @@
 
 
 # base-notebook-ubuntu-16
-Jupyter Docker Stacks `[base-notebook]`(https://github.com/jupyter/docker-stacks/tree/master/base-notebook) does not provide a base docker for `ubuntu 16.04`.  
+Jupyter Docker Stacks [`base-notebook`](https://github.com/jupyter/docker-stacks/tree/master/base-notebook) does not provide a base docker for `ubuntu 16.04`.  
 
 But I needed to use `Ubuntu 16.04`, so I made one.
