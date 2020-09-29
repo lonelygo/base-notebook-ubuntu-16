@@ -114,7 +114,7 @@ RUN wget --quiet https://repo.continuum.io/miniconda/Miniconda3-py37_${MINICONDA
     conda config --system --set show_channel_urls true && \
     conda config --system --set channel_priority strict
 
-RUN if [ ! $PYTHON_VERSION = 'default' ]; then conda install --yes python=$PYTHON_VERSION; fi
+RUN if [ ! $PYTHON_VERSION = 'default' ]; then conda install --channel conda-forge --channel bioconda --channel defaults --yes python=$PYTHON_VERSION; fi
 
 RUN conda list python | grep '^python ' | tr -s ' ' | cut -d '.' -f 1,2 | sed 's/$/.*/' >> $CONDA_DIR/conda-meta/pinned && \
     conda install --quiet --yes conda && \
