@@ -36,6 +36,7 @@ RUN apt-get update && apt-get -yq install software-properties-common
 RUN add-apt-repository -y ppa:deadsnakes/ppa
 RUN apt-get update
 RUN apt-get -yq install python3.7 python3-pip python3-dev
+# RUN apt-get -yq install python3.5 python3-pip python3-dev
 
 
 # Install all OS dependencies for notebook server that starts but lacks all
@@ -88,7 +89,9 @@ RUN echo "auth requisite pam_deny.so" >> /etc/pam.d/su && \
 
 USER $NB_UID
 WORKDIR $HOME
-ARG PYTHON_VERSION=default
+# Change default python version to 3.5.5
+ARG PYTHON_VERSION=3.5.5
+# ARG PYTHON_VERSION=default
 
 # Setup work directory for backward-compatibility
 RUN mkdir /home/$NB_USER/work && \
