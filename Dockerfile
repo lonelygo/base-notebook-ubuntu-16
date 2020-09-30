@@ -44,6 +44,7 @@ RUN apt-get -yq install python3.7 python3-pip python3-dev
 
 RUN apt-get update \
  && apt-get install -yq --no-install-recommends \
+    vim \
     wget \
     bzip2 \
     ca-certificates \
@@ -90,8 +91,8 @@ RUN echo "auth requisite pam_deny.so" >> /etc/pam.d/su && \
 USER $NB_UID
 WORKDIR $HOME
 # Change default python version to 3.5.5
-ARG PYTHON_VERSION=3.6
-# ARG PYTHON_VERSION=default
+# ARG PYTHON_VERSION=3.6
+ARG PYTHON_VERSION=default
 
 # Setup work directory for backward-compatibility
 RUN mkdir /home/$NB_USER/work && \
