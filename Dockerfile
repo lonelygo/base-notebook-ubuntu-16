@@ -90,7 +90,7 @@ RUN echo "auth requisite pam_deny.so" >> /etc/pam.d/su && \
 USER $NB_UID
 WORKDIR $HOME
 # Change default python version to 3.5.5
-ARG PYTHON_VERSION=3.5
+ARG PYTHON_VERSION=3.6
 # ARG PYTHON_VERSION=default
 
 # Setup work directory for backward-compatibility
