@@ -19,7 +19,7 @@ ARG ROOT_CONTAINER=ubuntu:16.04@sha256:168b1eb205e49339b2c23b6160ea1d60155b5a715
 ARG BASE_CONTAINER=$ROOT_CONTAINER
 FROM $BASE_CONTAINER
 
-LABEL maintainer="Jupyter Project <jupyter@googlegroups.com>"
+LABEL maintainer="Kevin Di<di.zemin@gmail.com>"
 ARG NB_USER="jovyan"
 ARG NB_UID="1000"
 ARG NB_GID="100"
@@ -32,11 +32,11 @@ USER root
 ENV DEBIAN_FRONTEND noninteractive
 # Add source to install python3.7
 # python3.7 need to install these packages first
+
 RUN apt-get update && apt-get -yq install software-properties-common
 RUN add-apt-repository -y ppa:deadsnakes/ppa
 RUN apt-get update
 RUN apt-get -yq install python3.7 python3-pip python3-dev
-# RUN apt-get -yq install python3.5 python3-pip python3-dev
 
 
 # Install all OS dependencies for notebook server that starts but lacks all
@@ -112,7 +112,8 @@ RUN wget --quiet https://repo.continuum.io/miniconda/Miniconda3-py37_${MINICONDA
     conda config --system --prepend channels conda-forge && \
     conda config --system --set auto_update_conda false && \
     conda config --system --set show_channel_urls true && \
-    conda config --system --set channel_priority strict
+    conda config --system --set channel_priority strict && \
+    conda config --system --set remote_read_timeout_secs 300
 
 RUN if [ ! $PYTHON_VERSION = 'default' ]; then conda install --yes python=$PYTHON_VERSION; fi
 
